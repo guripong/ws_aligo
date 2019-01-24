@@ -44,7 +44,7 @@ wss.on('connection', function connection(ws, req) {
             user_id:'guripong',
             sender:'01086867659',
             receiver:'01027794543,01098551337,01063689515,01027675501,01086867659',
-            msg:data+' <by Jace> ',
+            msg:data+' <by Jace ,AI동아리 회장 김성식> ',
           }
         },
         function (err, res, body) {
@@ -62,11 +62,6 @@ wss.on('connection', function connection(ws, req) {
 
         }
       .bind(lambdaws));
-
-    
-     
-
-     
     }
 
     // Broadcast to everyone else.
