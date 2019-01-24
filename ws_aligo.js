@@ -43,7 +43,7 @@ wss.on('connection', function connection(ws, req) {
             key: 'u1jsqzbnrmkwy95xi3znqg040bfxpjip',
             user_id:'guripong',
             sender:'01027794543',
-            receiver:'01086867659',
+            receiver:'01086867659,01098551337',
             msg:data+' <by Jace> ',
           }
         },
@@ -51,13 +51,13 @@ wss.on('connection', function connection(ws, req) {
           if(err)
           {
             console.log(`request error!!!!`);
-            lambdaws.send('fail to send ' + data);
+            lambdaws.send('I failed to send the message, ' + data + ', to everybody!');
           }
           else{
             //console.log(`success  res:`,res);
             //console.log(`success  body:`,body);
             
-            lambdaws.send('success to send a message that ' + data + 'to every users!');
+            lambdaws.send('I Successfully sent the message, ' + data + ', to everybody!');
           }
 
         }
