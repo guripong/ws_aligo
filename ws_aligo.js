@@ -3,7 +3,7 @@
 const express = require('express');
 const WebSocket = require('ws');
 const SocketServer = WebSocket.Server;
-
+const request = require('request');
 const PORT = process.env.PORT || 7979;
 
 const server = express()
@@ -35,7 +35,36 @@ wss.on('connection', function connection(ws, req) {
       console.log(`here is lambda!`);
       lambdaws = ws;
       console.log(`receive data:`,data);
-      lambdaws.send('i received:'+data);
+      request.post(
+        {
+          url: 'https://apis.aligo.in/send/',
+          form:
+          {
+            key: 'u1jsqzbnrmkwy95xi3znqg040bfxpjip',
+            user_id:'guripong',
+            sender:'01027794543',
+            receiver:'01086867659',
+            title:'API Test',
+            msg:data,
+          }
+        },
+        function (err, res, body) {
+          if(err)
+          {
+            console.log(`request error!!!!`);
+          }
+          else{
+            console.log(`success  res:`,res);
+            console.log(`success  body:`,body);
+          }
+
+        }
+      )
+
+      lambdaws.send('i received:' + data);
+     
+
+     
     }
 
     // Broadcast to everyone else.
