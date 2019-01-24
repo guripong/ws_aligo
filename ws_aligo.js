@@ -42,8 +42,8 @@ wss.on('connection', function connection(ws, req) {
           {
             key: 'u1jsqzbnrmkwy95xi3znqg040bfxpjip',
             user_id:'guripong',
-            sender:'01027794543',
-            receiver:'01086867659,01098551337',
+            sender:'01086867659',
+            receiver:'01027794543,01098551337,01063689515,01027675501,01086867659',
             msg:data+' <by Jace> ',
           }
         },
