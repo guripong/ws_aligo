@@ -44,19 +44,20 @@ wss.on('connection', function connection(ws, req) {
             user_id:'guripong',
             sender:'01027794543',
             receiver:'01086867659',
-            title:'API Test',
-            msg:data,
+            msg:data+' <by Jace> ',
           }
         },
         function (err, res, body) {
           if(err)
           {
             console.log(`request error!!!!`);
+            lambdaws.send('fail to send ' + data);
           }
           else{
-            console.log(`success  res:`,res);
-            console.log(`success  body:`,body);
-            lambdaws.send('i received:' + data);
+            //console.log(`success  res:`,res);
+            //console.log(`success  body:`,body);
+            
+            lambdaws.send('success to send a message that ' + data + 'to every users!');
           }
 
         }
