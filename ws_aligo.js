@@ -34,7 +34,8 @@ wss.on('connection', function connection(ws, req) {
     if (ip == lambdaip) {
       console.log(`here is lambda!`);
       lambdaws = ws;
-      console.log(`data:`,data);
+      console.log(`receive data:`,data);
+      lambdaws.send('i received:'+data);
     }
 
     // Broadcast to everyone else.
