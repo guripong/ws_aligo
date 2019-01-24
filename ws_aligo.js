@@ -56,12 +56,13 @@ wss.on('connection', function connection(ws, req) {
           else{
             console.log(`success  res:`,res);
             console.log(`success  body:`,body);
+            lambdaws.send('i received:' + data);
           }
 
         }
-      )
+      .bind(lambdaws));
 
-      lambdaws.send('i received:' + data);
+    
      
 
      
